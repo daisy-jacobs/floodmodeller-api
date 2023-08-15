@@ -22,7 +22,11 @@ from ._base import Unit
 
 
 class COMMENT(Unit):
-    """Class to hold and process Comments within dat file 
+    """Class to hold and process COMMENT unit type. 
+    The COMMENT class only supports the comment unit and allows comments to be placed between hydraulic units to aid documentation within the data file.
+    Comments cannot be placed before the end of the general system parameters data or within the initial conditions.
+    A comment isn't a hydraulic unit and therefore is not included in the number of nodes in the model. 
+    Do not use flood modeller keywords at the start of the line (e.g. don't start a line with RIVER or SPILL) 
 
     Args:
         text (str, optional): comment text.
@@ -50,8 +54,6 @@ class COMMENT(Unit):
     
         return block
 
-    #def _create_from_blank(self, text = []):
-        #for param, val in {"text": text,}.items():setattr(self, param, val)
         
     def _create_from_blank(self, text=None):
         '''Function to create an empty comment unit. '''
