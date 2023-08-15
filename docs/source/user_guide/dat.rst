@@ -98,6 +98,24 @@ allowing to insert or remove one unit at a time from the dat file.
     dat.remove_unit(unit_S6) #remove unit S6 from dat file
     dat.insert_unit(unit_S6, add_after = dat.sections['S5']) #add unit back into dat file
 
+You can also add in a reach with multiple units and a comment unit to clearly mark this has been inserted.
+
+.. code:: python
+    reach = [] # Empty list to hold our units for the reach
+
+    # Create 10 empty river units 
+    for i in range(1,11):
+        unit_name = f"unit_{i:02}"  
+        unit_instance = RIVER(name = unit_name)
+        reach.append((unit_instance))
+    
+    # Create a unit to mark the end of the reach and add to reach list
+    unit_comment = COMMENT("End of Reach")
+    reach.append((unit_comment))
+
+    # Add in the reach at start of dat file
+    dat.insert_unit(reach, add_at=0)
+
 Although it is possible to rename units by passing a new name into the ``.name`` attribute, 
 it is recommended to avoid this as it may cause label issues within the network. 
 
