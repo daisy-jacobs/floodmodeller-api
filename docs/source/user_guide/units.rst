@@ -119,3 +119,12 @@ Loss units
 ~~~~~~~~~~~~~
 
 .. autoclass:: floodmodeller_api.units.CULVERT
+
+.. _comment_units:
+
+Comment units
+--------------
+``COMMENT()``
+~~~~~~~~~~~
+
+.. autoclass:: floodmodeller_api.units.COMMENT
